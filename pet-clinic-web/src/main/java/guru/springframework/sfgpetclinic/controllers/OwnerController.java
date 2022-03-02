@@ -29,12 +29,6 @@ public class OwnerController {
         dataBinder.setDisallowedFields("id");
     }
 
-//    @RequestMapping({"","/index","/index.html"})
-//    public String listOwners(Model model){
-//
-//        model.addAttribute("owners",ownerService.findAll());
-//        return "owners/index";
-//    }
 
     @RequestMapping("/find")
     public String findOwners(Model model){
@@ -83,8 +77,8 @@ public class OwnerController {
             return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
         }
         else {
-            ownerService.save(owner);
-            return "redirect:/owners/" + owner.getId();
+            Owner save = ownerService.save(owner);
+            return "redirect:/owners/" + save.getId();
         }
     }
 
